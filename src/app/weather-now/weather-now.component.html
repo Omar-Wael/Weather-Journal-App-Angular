@@ -1,0 +1,49 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&family=Peralta&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<div class="container">
+  <p><b>the.weather</b></p>
+  <header>
+    <form (ngSubmit)="getweather(location)">
+      <input type="text" name="location" [(ngModel)]="location" />
+      <button type="submit" class="btn btn-primary">
+        Search
+
+        <i class="bi bi-search"></i>
+      </button>
+    </form>
+  </header>
+  <div
+    class="climate"
+    *ngIf="this.weatherData?.current.temperature; else emptyMessage"
+  >
+    <h1 class="temp">{{ this.weatherData?.current.temperature }}&deg;</h1>
+    <p>
+      {{ this.weatherData?.location.name }} -
+      {{ this.weatherData?.location.country }}
+    </p>
+    <p>
+      {{ today | date: "fullDate" }} -
+      {{ this.weatherData?.current.observation_time }}
+    </p>
+    <div class="condition">
+      <img src="{{ this.weatherData?.current.weather_icons }}" alt="" />
+      <p>{{ this.weatherData?.current.weather_descriptions }}</p>
+    </div>
+    <p>Humidity : {{ this.weatherData?.current.humidity }} %</p>
+    <p>Cloud Cover : {{ this.weatherData?.current.cloudcover }} %</p>
+    <p>Wind Speed : {{ this.weatherData?.current.wind_speed }} Km/Hr</p>
+    <p>Wind Direction : {{ this.weatherData?.current.wind_dir }}</p>
+    <p>Wind Degree : {{ this.weatherData?.current.wind_degree }} &deg;</p>
+  </div>
+  <ng-template #emptyMessage>
+    <div class="empty-cart-message">
+      <p>Please Enter your City</p>
+    </div>
+  </ng-template>
+</div>

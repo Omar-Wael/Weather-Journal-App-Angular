@@ -1,0 +1,19 @@
+<div
+  class="container"
+  [ngStyle]="{
+    'background-image':
+      weatherDescription === 'Rain'
+        ? 'url(https://services.meteored.com/img/article/warmer-but-wetter-across-the-uk-with-heavy-rain-and-a-risk-of-snow-1648998337815_768.jpeg)'
+        : weatherDescription === 'Sunny'
+        ? 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWPsCRyLbWhHs6NOoUIixkzS_DzZC4tjIOMQ&usqp=CAU)'
+        : 'url(https://store-images.s-microsoft.com/image/apps.16894.c02476d2-2378-4f60-8290-b6d4b3842643.79a2ef6a-4775-4c79-8d93-9caf077660eb.1bbd88a4-0a17-4750-91a0-cd7d98f58e9d)',
+    'background-size': 'cover',
+    'min-height': '100vh',
+    'background-repeat': 'no-repeat',
+    'background-position': 'center'
+  }"
+>
+  <app-weather-now
+    (eventEmitter)="getWeatherDescription($event)"
+  ></app-weather-now>
+</div>

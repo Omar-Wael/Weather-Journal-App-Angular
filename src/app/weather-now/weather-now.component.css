@@ -1,0 +1,19 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  font-family: "Peralta", cursive;
+  color: black;
+}
+.condition {
+  font-family: "Montserrat", sans-serif;
+  font-family: "Peralta", cursive;
+}
+img {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+p {
+  font-size: 20px;
+}
